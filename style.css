@@ -171,6 +171,22 @@ h2 {
     text-decoration: underline;
 }
 
+.iletisim-item .fa-instagram {
+    transition: color 0.3s ease;
+}
+
+.iletisim-item .fa-instagram:hover {
+    color: #E1306C; /* Instagram'ın karakteristik rengi */
+}
+
+.iletisim-item a[href*="instagram"] {
+    transition: color 0.3s ease;
+}
+
+.iletisim-item a[href*="instagram"]:hover {
+    color: #E1306C;
+}
+
 .map-container {
     border-radius: 15px;
     overflow: hidden;
