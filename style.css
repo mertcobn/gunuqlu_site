@@ -311,56 +311,64 @@ html {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
     }
 
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        padding: 1rem 0;
+        background: var(--white);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        z-index: 1000;
     }
 
     .nav-links.active {
-        display: flex;
+        display: block;
+    }
+
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.8rem 1rem;
+        text-align: left;
     }
 
     .navbar {
-        padding: 1rem;
+        position: relative;
+        padding: 0.5rem;
     }
 
-    .logo-container h1 {
-        font-size: 1.2rem;
+    .logo-container {
+        padding-right: 3rem; /* Menü toggle butonu için yer aç */
     }
 
-    .logo {
-        width: 40px;
+    /* Header yüksekliğini azalt */
+    header {
+        padding: 0.5rem;
     }
 
-    /* İletişim bölümü düzenlemesi */
-    .iletisim-container {
-        grid-template-columns: 1fr;
+    /* Ana içeriği header'ın altına kaydır */
+    main {
+        padding-top: 70px; /* Header yüksekliğine göre ayarla */
     }
 
-    .map-container {
-        height: 300px;
-    }
-
-    .map-container iframe {
-        height: 100%;
-    }
-
-    /* Section padding düzenlemesi */
+    /* Section margin'ini düzelt */
     .section {
-        padding: 2rem 1rem;
-    }
-
-    /* Eğitmen kartları için düzenleme */
-    .egitmen-card img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .egitmen-card {
-        padding: 1rem;
+        scroll-margin-top: 70px;
     }
 }
 
@@ -390,6 +398,23 @@ html {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
+    }
+
+    .logo-container h1 {
+        font-size: 0.9rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    .section {
+        scroll-margin-top: 60px;
     }
 }
 
@@ -684,123 +709,6 @@ img {
 /* Logo için pointer-events'i geri aç (tıklanabilir olsun) */
 .logo {
     pointer-events: auto;
-}
-
-/* Mobil uyumluluk iyileştirmeleri */
-@media (max-width: 768px) {
-    /* Header düzenlemeleri */
-    header {
-        padding: 0.5rem;
-    }
-
-    .navbar {
-        padding: 0;
-    }
-
-    .logo-container {
-        gap: 0.5rem;
-    }
-
-    .logo {
-        width: 35px;
-    }
-
-    /* Anasayfa düzenlemeleri */
-    .anasayfa-container {
-        gap: 1rem;
-        min-height: auto;
-        padding-top: 0;
-    }
-
-    /* Dersler kısmı düzenlemeleri */
-    .dersler-kismi {
-        padding: 0.5rem;
-    }
-
-    .ders-card {
-        margin-bottom: 0.8rem;
-    }
-
-    /* Eğitmenler grid düzenlemesi */
-    .egitmenler-grid {
-        padding: 1rem 0;
-        gap: 1rem;
-    }
-
-    .egitmen-card {
-        padding: 1rem;
-    }
-
-    .egitmen-card img {
-        width: 120px;
-        height: 120px;
-    }
-
-    /* İletişim bölümü düzenlemeleri */
-    .iletisim-container {
-        gap: 1rem;
-    }
-
-    .iletisim-bilgi {
-        padding: 1rem;
-    }
-
-    .map-container {
-        height: 250px;
-    }
-
-    /* Section başlıkları düzenlemesi */
-    .section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    /* Genel padding ve margin düzenlemeleri */
-    .section {
-        padding: 1.5rem 1rem;
-    }
-}
-
-/* Daha küçük mobil cihazlar için ek düzenlemeler */
-@media (max-width: 480px) {
-    /* Header düzenlemeleri */
-    .logo-container h1 {
-        font-size: 1rem;
-    }
-
-    /* Slider düzenlemeleri */
-    .slider-container {
-        height: 200px;
-    }
-
-    /* Eğitmen kartları düzenlemesi */
-    .egitmen-card img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .egitmen-card h3 {
-        font-size: 1rem;
-    }
-
-    .egitmen-card p {
-        font-size: 0.8rem;
-    }
-
-    /* İletişim düzenlemeleri */
-    .iletisim-item {
-        font-size: 0.9rem;
-    }
-
-    .iletisim-item i {
-        font-size: 1.2rem;
-    }
-
-    /* Menü düzenlemeleri */
-    .nav-link {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.9rem;
-    }
 }
 
 /* Tablet görünümü için düzenlemeler */
