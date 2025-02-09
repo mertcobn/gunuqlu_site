@@ -263,4 +263,97 @@ html {
     height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
+}
+
+/* Mobil menü için yeni stiller */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .logo-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    /* İletişim bölümü düzenlemesi */
+    .iletisim-container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    .map-container iframe {
+        height: 100%;
+    }
+
+    /* Section padding düzenlemesi */
+    .section {
+        padding: 2rem 1rem;
+    }
+
+    /* Eğitmen kartları için düzenleme */
+    .egitmen-card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .egitmen-card {
+        padding: 1rem;
+    }
+}
+
+/* Tablet görünümü için düzenlemeler */
+@media (max-width: 992px) {
+    .egitmenler-grid {
+        gap: 1rem;
+    }
+
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+/* Küçük mobil cihazlar için ek düzenlemeler */
+@media (max-width: 480px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .iletisim-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
 } 

@@ -17,6 +17,9 @@
                 <img src="logo.png" alt="Nota İncisi Müzik Derneği Logo" class="logo">
                 <h1>Nota İncisi Müzik Derneği</h1>
             </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="#anasayfa" class="nav-link">Anasayfa</a></li>
                 <li><a href="#egitmenler" class="nav-link">Eğitmenlerimiz</a></li>
@@ -100,5 +103,18 @@
     <footer>
         <p>&copy; 2024 Nota İncisi Müzik Derneği. Tüm hakları saklıdır.</p>
     </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Menü öğelerine tıklandığında menüyü kapat
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html> 
