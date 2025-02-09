@@ -139,6 +139,14 @@ h2 {
     color: var(--dark-gray);
 }
 
+/* Eğitmen kartlarındaki üniversite ve bölüm bilgileri için stil */
+.egitmen-card .egitim-bilgisi {
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+    font-style: italic;
+    margin-top: 0.3rem;
+}
+
 /* İletişim Bölümü */
 .iletisim-container {
     display: grid;
@@ -211,27 +219,100 @@ footer {
 /* Responsive tasarım için menü düzenlemesi */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0.5rem 1rem;
     }
 
     .logo-container {
         flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding-right: 0;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .logo {
+        width: 35px;
+        position: absolute;
+        left: 1rem;
+    }
+
+    .logo-container h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        z-index: 999;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.8rem 1rem;
+        text-align: left;
+    }
+
+    .navbar {
+        position: relative;
+        padding: 0.5rem;
+    }
+
+    .logo-container {
+        padding-right: 3rem;
+    }
+
+    header {
+        height: 60px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    main {
+        padding-top: 60px;
+        position: relative;
+        z-index: 1;
     }
 
     .section {
-        padding: 2rem 1rem;
-        scroll-margin-top: 80px;
+        scroll-margin-top: 60px;
     }
 }
 
@@ -385,36 +466,21 @@ html {
 
 /* Küçük mobil cihazlar için ek düzenlemeler */
 @media (max-width: 480px) {
-    .logo-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    .iletisim-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-
     .logo-container h1 {
         font-size: 0.9rem;
     }
 
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
+    .nav-links {
+        top: 50px;
+        max-height: calc(100vh - 50px);
+    }
+
+    header {
+        height: 50px;
     }
 
     main {
-        padding-top: 60px;
-    }
-
-    .section {
-        scroll-margin-top: 60px;
+        padding-top: 50px;
     }
 }
 
@@ -728,4 +794,29 @@ img {
     .section {
         padding: 2rem 1.5rem;
     }
+}
+
+.iletisim-detay {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.iletisim-detay p:first-child {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+.iletisim-isim {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+/* Telefon numarası için özel stil */
+.telefon-no {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1rem;
 } 
