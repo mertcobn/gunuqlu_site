@@ -92,7 +92,7 @@ h2 {
 }
 
 /* Eğitmenler Bölümü */
-.egitmenler-grid {
+.teachers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -102,11 +102,11 @@ h2 {
 }
 
 /* Son kartı ortala */
-.egitmenler-grid .egitmen-card:last-child {
+.teachers-grid .teacher-card:last-child {
     grid-column: 2; /* Ortadaki sütunda olacak */
 }
 
-.egitmen-card {
+.teacher-card {
     background: var(--white);
     border-radius: 15px;
     padding: 1.5rem;
@@ -116,13 +116,13 @@ h2 {
     border: 1px solid rgba(77, 174, 182, 0.1);
 }
 
-.egitmen-card:hover {
+.teacher-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(55, 86, 97, 0.2);
     border-color: var(--primary-color);
 }
 
-.egitmen-card img {
+.teacher-card img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -130,17 +130,17 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.egitmen-card h3 {
+.teacher-card h3 {
     color: var(--primary-color);
     margin: 1rem 0;
 }
 
-.egitmen-card p {
+.teacher-card p {
     color: var(--dark-gray);
 }
 
 /* Eğitmen kartlarındaki üniversite ve bölüm bilgileri için stil */
-.egitmen-card .egitim-bilgisi {
+.education-info {
     font-size: 0.75rem;
     color: var(--medium-gray);
     font-style: italic;
@@ -148,13 +148,13 @@ h2 {
 }
 
 /* İletişim Bölümü */
-.iletisim-container {
+.contact-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
 }
 
-.iletisim-bilgi {
+.contact-info {
     background: var(--white);
     border-radius: 15px;
     padding: 2rem;
@@ -162,43 +162,43 @@ h2 {
     border: 1px solid rgba(77, 174, 182, 0.1);
 }
 
-.iletisim-item {
+.contact-item {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.iletisim-item i {
+.contact-item i {
     color: var(--primary-color);
     font-size: 1.5rem;
 }
 
-.iletisim-item p, 
-.iletisim-item a {
+.contact-item p, 
+.contact-item a {
     color: var(--secondary-color);
     font-size: 1.1rem;
     text-decoration: none;
 }
 
-.iletisim-item a:hover {
+.contact-item a:hover {
     color: var(--primary-color);
     text-decoration: underline;
 }
 
-.iletisim-item .fa-instagram {
+.contact-item .fa-instagram {
     transition: color 0.3s ease;
 }
 
-.iletisim-item .fa-instagram:hover {
+.contact-item .fa-instagram:hover {
     color: #E1306C; /* Instagram'ın karakteristik rengi */
 }
 
-.iletisim-item a[href*="instagram"] {
+.contact-item a[href*="instagram"] {
     transition: color 0.3s ease;
 }
 
-.iletisim-item a[href*="instagram"]:hover {
+.contact-item a[href*="instagram"]:hover {
     color: #E1306C;
 }
 
@@ -317,17 +317,17 @@ footer {
 }
 
 @media (max-width: 992px) {
-    .egitmenler-grid {
+    .teachers-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .egitmenler-grid .egitmen-card:last-child {
+    .teachers-grid .teacher-card:last-child {
         grid-column: auto; /* Tablet görünümünde normal akışa dön */
     }
 }
 
 @media (max-width: 576px) {
-    .egitmenler-grid {
+    .teachers-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -455,7 +455,7 @@ html {
 
 /* Tablet görünümü için düzenlemeler */
 @media (max-width: 992px) {
-    .egitmenler-grid {
+    .teachers-grid {
         gap: 1rem;
     }
 
@@ -530,7 +530,7 @@ html {
 }
 
 /* Anasayfa bölümü için yeni stiller */
-.anasayfa-container {
+.home-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -539,14 +539,14 @@ html {
     padding-top: 1rem;
 }
 
-.galeri-grid {
+.gallery-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     height: 100%;
 }
 
-.galeri-item {
+.gallery-item {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -554,22 +554,22 @@ html {
     transition: transform 0.3s ease;
 }
 
-.galeri-item:hover {
+.gallery-item:hover {
     transform: scale(1.05);
 }
 
-.dersler-kismi {
+.workshop-section {
     padding: 1rem;
     max-height: 500px;
     overflow-y: auto;
 }
 
-.dersler-kismi h2 {
+.workshop-section h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
-.ders-card {
+.workshop-card {
     background: var(--white);
     padding: 1.2rem;
     border-radius: 10px;
@@ -578,23 +578,23 @@ html {
     transition: transform 0.3s ease;
 }
 
-.ders-card:hover {
+.workshop-card:hover {
     transform: translateX(10px);
 }
 
-.ders-card h3 {
+.workshop-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
-.ders-card p {
+.workshop-card p {
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
 /* Mobil görünüm için düzenlemeler */
 @media (max-width: 992px) {
-    .anasayfa-container {
+    .home-container {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
@@ -603,20 +603,20 @@ html {
         height: 400px;
     }
 
-    .dersler-kismi {
+    .workshop-section {
         max-height: none;
         overflow-y: visible;
     }
 
-    .ders-card {
+    .workshop-card {
         padding: 1rem;
     }
 
-    .ders-card h3 {
+    .workshop-card h3 {
         font-size: 1.1rem;
     }
 
-    .ders-card p {
+    .workshop-card p {
         font-size: 0.9rem;
     }
 }
@@ -626,7 +626,7 @@ html {
         height: 300px;
     }
 
-    .dersler-kismi h2 {
+    .workshop-section h2 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
@@ -637,15 +637,15 @@ html {
         height: 250px;
     }
 
-    .ders-card {
+    .workshop-card {
         padding: 0.8rem;
     }
 
-    .ders-card h3 {
+    .workshop-card h3 {
         font-size: 1rem;
     }
 
-    .ders-card p {
+    .workshop-card p {
         font-size: 0.85rem;
     }
 }
@@ -727,16 +727,16 @@ html {
 }
 
 /* Scroll çubuğu stilleri */
-.dersler-kismi::-webkit-scrollbar {
+.workshop-section::-webkit-scrollbar {
     width: 6px;
 }
 
-.dersler-kismi::-webkit-scrollbar-track {
+.workshop-section::-webkit-scrollbar-track {
     background: var(--light-gray);
     border-radius: 10px;
 }
 
-.dersler-kismi::-webkit-scrollbar-thumb {
+.workshop-section::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border-radius: 10px;
 }
@@ -760,15 +760,10 @@ html {
 /* Tüm resimleri seç */
 img {
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -o-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
     pointer-events: none;
 }
 
@@ -779,7 +774,7 @@ img {
 
 /* Tablet görünümü için düzenlemeler */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .anasayfa-container {
+    .home-container {
         gap: 1.5rem;
     }
 
@@ -787,7 +782,7 @@ img {
         height: 350px;
     }
 
-    .egitmenler-grid {
+    .teachers-grid {
         gap: 1.5rem;
     }
 
@@ -796,26 +791,26 @@ img {
     }
 }
 
-.iletisim-detay {
+.contact-detail {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
 }
 
-.iletisim-detay p:first-child {
+.contact-detail p:first-child {
     font-weight: 700;
     color: var(--secondary-color);
     font-size: 1.1rem;
     letter-spacing: 0.02em;
 }
 
-.iletisim-isim {
+.contact-detail p {
     font-size: 0.95rem;
     color: var(--dark-gray);
 }
 
 /* Telefon numarası için özel stil */
-.telefon-no {
+.phone-number {
     color: var(--primary-color);
     font-weight: 500;
     font-size: 1rem;

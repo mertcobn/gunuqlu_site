@@ -21,15 +21,15 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
-                <li><a href="#anasayfa" class="nav-link">Anasayfa</a></li>
-                <li><a href="#egitmenler" class="nav-link">Eğitmenlerimiz</a></li>
-                <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#teachers" class="nav-link">Teachers</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="anasayfa" class="section">
+        <section id="home" class="section">
             <div class="anasayfa-container">
                 <div class="galeri-kismi">
                     <div class="slider-container">
@@ -55,54 +55,54 @@
                     </div>
                 </div>
                 <div class="dersler-kismi">
-                    <h2>Atölyelerimiz</h2>
+                    <h2>Workshops</h2>
                     <div class="ders-card">
-                        <h3>Bağlama Atölyesi</h3>
+                        <h3>Baglama Workshop</h3>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Piyano Atölyesi</h3>
+                        <h3>Piyano Workshop</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Gitar Atölyesi</h3>
+                        <h3>Gitar Workshop</h3>
                         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Keman Atölyesi</h3>
+                        <h3>Keman Workshop</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod ligula nec tellus accumsan tincidunt.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Viyola Atölyesi</h3>
+                        <h3>Viyola Workshop</h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Bateri Atölyesi</h3>
+                        <h3>Bateri Workshop</h3>
                         <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Flüt Atölyesi</h3>
+                        <h3>Flüt Workshop</h3>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Klarnet Atölyesi</h3>
+                        <h3>Klarnet Workshop</h3>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="ders-card">
-                        <h3>Saksafon Atölyesi</h3>
+                        <h3>Saksafon Workshop</h3>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="egitmenler" class="section">
-            <h2>Eğitmenlerimiz</h2>
+        <section id="teachers" class="section">
+            <h2>Teachers</h2>
             <div class="egitmenler-grid">
                 <div class="egitmen-card">
                     <img src="egitmen1.jpg" alt="Gülşen Cila">
                     <h3>Gülşen Cila</h3>
-                    <p>Bağlama</p>
+                    <p>Baglama</p>
                     <p class="egitim-bilgisi"></p>
                     <p class="egitim-bilgisi"></p>
                 </div>
@@ -157,8 +157,8 @@
             </div>
         </section>
 
-        <section id="iletisim" class="section">
-            <h2>İletişim</h2>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
             <div class="iletisim-container">
                 <div class="iletisim-bilgi">
                     <div class="iletisim-item">
@@ -188,167 +188,6 @@
         <p>&copy; 2024 Nota İncisi Müzik Derneği. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Menü öğelerine tıklandığında menüyü kapat
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-
-        // Smooth scroll için offset ayarı
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                const headerHeight = document.querySelector('header').offsetHeight;
-                
-                // Tam sayfa geçişi için scroll pozisyonunu ayarla
-                const scrollPosition = targetId === '#anasayfa' ? 0 : targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: scrollPosition,
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Aktif navigasyon öğesini işaretleme fonksiyonunu güncelle
-        function setActiveNavLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const headerHeight = document.querySelector('header').offsetHeight;
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= (sectionTop - headerHeight - 10)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Anasayfa için özel durum
-            if (window.scrollY < 100) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                document.querySelector('a[href="#anasayfa"]').classList.add('active');
-            }
-        }
-
-        // Sayfa yüklendiğinde ve scroll edildiğinde kontrol et
-        window.addEventListener('load', setActiveNavLink);
-        window.addEventListener('scroll', setActiveNavLink);
-
-        // Slider fonksiyonları
-        function initSlider() {
-            const slides = document.querySelectorAll('.slide');
-            const dotsContainer = document.querySelector('.slider-dots');
-            const prevButton = document.querySelector('.prev-button');
-            const nextButton = document.querySelector('.next-button');
-            let currentSlide = 0;
-            let autoSlideInterval;
-            
-            // Noktaları oluştur
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetAutoSlide();
-                });
-                dotsContainer.appendChild(dot);
-            });
-            
-            // İlk slaytı göster
-            slides[0].classList.add('active');
-            
-            function goToSlide(index) {
-                slides[currentSlide].classList.remove('active');
-                document.querySelectorAll('.dot')[currentSlide].classList.remove('active');
-                
-                currentSlide = index;
-                
-                slides[currentSlide].classList.add('active');
-                document.querySelectorAll('.dot')[currentSlide].classList.add('active');
-            }
-            
-            function nextSlide() {
-                const next = (currentSlide + 1) % slides.length;
-                goToSlide(next);
-            }
-            
-            function prevSlide() {
-                const prev = (currentSlide - 1 + slides.length) % slides.length;
-                goToSlide(prev);
-            }
-            
-            // Otomatik geçişi resetle
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            // Event listeners
-            prevButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                prevSlide();
-                resetAutoSlide();
-            });
-            
-            nextButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nextSlide();
-                resetAutoSlide();
-            });
-            
-            // Slider container'a tıklama
-            document.querySelector('.slider-container').addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-            
-            // Otomatik geçiş başlat
-            resetAutoSlide();
-        }
-
-        // Sayfa yüklendiğinde slider'ı başlat
-        window.addEventListener('load', initSlider);
-
-        // Sağ tıklama ve kısayol tuşlarını engelle
-        document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            // CTRL+S / Command+S engelle
-            if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
-                e.preventDefault();
-            }
-            // CTRL+U / Command+U engelle
-            if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) {
-                e.preventDefault();
-            }
-            // CTRL+SHIFT+I / Command+Option+I engelle
-            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.keyCode === 73) {
-                e.preventDefault();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html> 
