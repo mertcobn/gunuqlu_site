@@ -20,7 +20,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         const headerHeight = document.querySelector('header').offsetHeight;
         
         // Tam sayfa geçişi için scroll pozisyonunu ayarla
-        const scrollPosition = targetId === '#home' ? 0 : targetSection.offsetTop - headerHeight;
+        const scrollPosition = targetId === '#anasayfa' ? 0 : targetSection.offsetTop - headerHeight;
         
         window.scrollTo({
             top: scrollPosition,
@@ -54,7 +54,7 @@ function setActiveNavLink() {
     // Anasayfa için özel durum
     if (window.scrollY < 100) {
         navLinks.forEach(link => link.classList.remove('active'));
-        document.querySelector('a[href="#home"]').classList.add('active');
+        document.querySelector('a[href="#anasayfa"]').classList.add('active');
     }
 }
 
