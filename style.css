@@ -252,10 +252,22 @@ footer {
     }
 
     .menu-toggle {
+        display: block;
         position: absolute;
-        right: 0;
+        right: 1rem;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 100;
+        font-size: 1.2rem; /* İkon boyutunu ayarla */
+        color: var(--secondary-color);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Menü butonunun tıklama alanını genişlet */
+    .menu-toggle i {
+        display: block;
+        line-height: 1;
     }
 
     .nav-links {
@@ -418,7 +430,19 @@ html {
         display: block;
         position: absolute;
         right: 1rem;
-        top: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        font-size: 1.2rem; /* İkon boyutunu ayarla */
+        color: var(--secondary-color);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Menü butonunun tıklama alanını genişlet */
+    .menu-toggle i {
+        display: block;
+        line-height: 1;
     }
 
     .nav-links {
