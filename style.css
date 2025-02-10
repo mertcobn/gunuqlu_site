@@ -22,12 +22,13 @@ body {
 
 header {
     background-color: var(--white);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 15px rgba(55, 86, 97, 0.1);
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 10px rgba(55, 86, 97, 0.08);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: 60px; /* Daha kompakt header */
 }
 
 .navbar {
@@ -36,18 +37,22 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .logo {
-    width: 60px;
+    width: 40px; /* Logo boyutunu küçült */
     height: auto;
-    pointer-events: auto;
+}
+
+.logo-container h1 {
+    font-size: 1.2rem; /* Başlık boyutunu küçült */
 }
 
 h1, h2, h3 {
@@ -231,7 +236,7 @@ footer {
         justify-content: center;
         position: relative;
         padding: 0.5rem 1rem;
-        height: 60px; /* Sabit yükseklik ekleyelim */
+        height: 50px; /* Mobilde daha da kompakt */
     }
 
     .logo-container {
@@ -243,8 +248,8 @@ footer {
     }
 
     .logo {
-        width: 35px;
-        height: 35px;
+        width: 32px; /* Mobilde daha küçük logo */
+        height: 32px;
         position: absolute;
         left: 0;
         top: 50%;
@@ -265,7 +270,7 @@ footer {
         top: 50%;
         transform: translateY(-50%);
         z-index: 100;
-        font-size: 1.2rem; /* İkon boyutunu ayarla */
+        font-size: 1.1rem;
         color: var(--secondary-color);
         cursor: pointer;
         padding: 0.5rem;
@@ -279,14 +284,14 @@ footer {
 
     .nav-links {
         position: fixed;
-        top: 60px;
+        top: 50px;
         left: 0;
         width: 100%;
         background: var(--white);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: 0;
         z-index: 999;
-        max-height: calc(100vh - 60px);
+        max-height: calc(100vh - 50px);
         overflow-y: auto;
     }
 
@@ -319,51 +324,53 @@ footer {
     }
 
     header {
-        height: 60px;
+        height: 50px; /* Mobilde daha da kompakt */
         padding: 0;
         display: flex;
         align-items: center;
     }
 
     main {
-        padding-top: 60px;
+        padding-top: 50px;
         position: relative;
         z-index: 1;
     }
 
     .section {
-        scroll-margin-top: 60px;
+        scroll-margin-top: 50px;
     }
 
     .anasayfa-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        display: block;
         padding: 0 1rem;
     }
 
     .dersler-kismi {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
         padding: 0;
-        margin-bottom: 1.5rem;
-    }
-
-    .dersler-kismi h2 {
-        font-size: 1.3rem;
-        padding: 0.5rem 0;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .ders-card {
-        padding: 0.8rem 1rem;
-    }
-
-    .ders-card h3 {
-        font-size: 0.95rem;
+        width: 100%;
+        margin-bottom: 2rem;
     }
 
     .galeri-kismi {
-        order: 2;
+        width: 100%;
+        display: block;
+    }
+
+    .slider-container {
+        height: 300px;
+        width: 100%;
+    }
+
+    .ders-card {
+        padding: 0.8rem;
+    }
+
+    .ders-card h3 {
+        font-size: 0.9rem;
+        line-height: 1.3;
     }
 
     .egitmenler-section {
@@ -597,15 +604,16 @@ html {
     }
 
     .dersler-kismi {
-        gap: 0.8rem;
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 0.6rem;
     }
 
     .ders-card {
-        padding: 0.7rem 0.9rem;
+        padding: 0.7rem;
     }
 
     .ders-card h3 {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .slider-container {
@@ -660,10 +668,8 @@ html {
 
 /* Anasayfa bölümü için yeni stiller */
 .anasayfa-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
+    display: block;
+    padding: 0 1rem;
 }
 
 .galeri-grid {
@@ -729,35 +735,28 @@ html {
 
 /* Mobil görünüm için düzenlemeler */
 @media (max-width: 768px) {
-    .anasayfa-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-
     .dersler-kismi {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
         padding: 0;
-        margin-bottom: 1.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
     }
 
     .dersler-kismi h2 {
-        font-size: 1.3rem;
-        padding: 0.5rem 0;
+        grid-column: 1 / -1;
         text-align: center;
         margin-bottom: 1rem;
     }
 
-    .ders-card {
-        padding: 0.8rem 1rem;
-    }
-
-    .ders-card h3 {
-        font-size: 0.95rem;
-    }
-
     .galeri-kismi {
-        order: 2;
+        width: 100%;
+        display: block;
+    }
+
+    .slider-container {
+        height: 300px;
+        width: 100%;
     }
 
     .egitmenler-section {
@@ -931,4 +930,40 @@ img {
     color: var(--primary-color);
     font-weight: 500;
     font-size: 1rem;
+}
+
+/* Çok küçük ekranlar için düzenleme */
+@media (max-width: 360px) {
+    .dersler-kismi {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Masaüstü görünümü için grid yapısını koru */
+@media (min-width: 769px) {
+    .anasayfa-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Mobil menü öğeleri varsayılan olarak gizli */
+.mobile-only {
+    display: none;
+}
+
+/* Masaüstü menü öğeleri varsayılan olarak görünür */
+.desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Mobilde göster */
+    }
+    
+    .desktop-only {
+        display: none; /* Mobilde gizle */
+    }
 } 

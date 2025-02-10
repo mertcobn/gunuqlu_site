@@ -19,8 +19,15 @@ document.querySelectorAll('.nav-link').forEach(link => {
         const targetSection = document.querySelector(targetId);
         const headerHeight = document.querySelector('header').offsetHeight;
         
-        // Tam sayfa geçişi için scroll pozisyonunu ayarla
-        const scrollPosition = targetId === '#anasayfa' ? 0 : targetSection.offsetTop - headerHeight;
+        let scrollPosition;
+        if (targetId === '#anasayfa' || targetId === '#galeri') {
+            const targetElement = targetId === '#galeri' ? 
+                document.querySelector('.galeri-kismi') : 
+                document.querySelector('.dersler-kismi');
+            scrollPosition = targetElement.offsetTop - headerHeight;
+        } else {
+            scrollPosition = targetSection.offsetTop - headerHeight;
+        }
         
         window.scrollTo({
             top: scrollPosition,
@@ -31,31 +38,49 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 // Aktif navigasyon öğesini işaretleme fonksiyonu
 function setActiveNavLink() {
-    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     const headerHeight = document.querySelector('header').offsetHeight;
-    
+    const viewportMiddle = window.innerHeight / 2;
     let currentSection = '';
+
+    // Galeri ve Atölyeler için kontrol
+    const galeriSection = document.querySelector('.galeri-kismi');
+    const derslerSection = document.querySelector('.dersler-kismi');
+    const egitmenlerSection = document.querySelector('#egitmenler');
     
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= (sectionTop - headerHeight - 10)) {
-            currentSection = section.getAttribute('id');
+    if (galeriSection && derslerSection) {
+        const galeriRect = galeriSection.getBoundingClientRect();
+        const derslerRect = derslerSection.getBoundingClientRect();
+        const egitmenlerRect = egitmenlerSection.getBoundingClientRect();
+        
+        // Önce galeri ve atölyeleri kontrol et
+        if (galeriRect.top < viewportMiddle && galeriRect.bottom > 0 && egitmenlerRect.top > viewportMiddle) {
+            currentSection = 'galeri';
+        } else if (derslerRect.top < viewportMiddle && derslerRect.bottom > 0 && galeriRect.top > viewportMiddle) {
+            currentSection = 'anasayfa';
         }
-    });
+    }
+
+    // Eğer galeri veya atölye seçili değilse, diğer bölümleri kontrol et
+    if (!currentSection) {
+        document.querySelectorAll('section').forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < viewportMiddle && rect.bottom > 0) {
+                const sectionId = section.getAttribute('id');
+                if (sectionId !== 'anasayfa') {
+                    currentSection = sectionId;
+                }
+            }
+        });
+    }
     
+    // Aktif linki güncelle
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === currentSection) {
             link.classList.add('active');
         }
     });
-
-    // Anasayfa için özel durum
-    if (window.scrollY < 100) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        document.querySelector('a[href="#anasayfa"]').classList.add('active');
-    }
 }
 
 // Slider fonksiyonları
@@ -137,6 +162,7 @@ window.addEventListener('load', () => {
     initSlider();
 });
 window.addEventListener('scroll', setActiveNavLink);
+window.addEventListener('resize', setActiveNavLink);
 
 // Sağ tıklama ve kısayol tuşlarını engelle
 document.addEventListener('contextmenu', function(e) {
