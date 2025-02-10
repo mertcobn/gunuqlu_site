@@ -202,10 +202,17 @@ h2 {
     color: #E1306C;
 }
 
+/* Masaüstü için normal görünüm */
 .map-container {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(55, 86, 97, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
 }
 
 footer {
@@ -364,18 +371,23 @@ footer {
         width: 100%;
     }
 
+    /* Mobil görünüm için özel düzenleme */
     .map-container {
-        order: 2; /* Haritayı alta al */
+        order: 2;
         width: 100%;
-        height: 300px; /* Harita yüksekliğini ayarla */
-        margin-top: 1rem;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
     }
 
     .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         border: none;
-        border-radius: 15px;
     }
 
     /* Gereksiz elementleri gizle */
