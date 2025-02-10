@@ -220,26 +220,28 @@ footer {
 @media (max-width: 768px) {
     .navbar {
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: center;
         position: relative;
         padding: 0.5rem 1rem;
+        height: 60px; /* Sabit yükseklik ekleyelim */
     }
 
     .logo-container {
-        flex-direction: row;
-        justify-content: flex-start;
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
         width: 100%;
-        padding-right: 0;
+        position: relative;
+        padding: 0 40px; /* Logoya yer açmak için padding */
     }
 
     .logo {
         width: 35px;
+        height: 35px;
         position: absolute;
-        left: 1rem;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .logo-container h1 {
@@ -251,10 +253,9 @@ footer {
 
     .menu-toggle {
         position: absolute;
-        right: 1rem;
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1001;
     }
 
     .nav-links {
@@ -313,6 +314,29 @@ footer {
 
     .section {
         scroll-margin-top: 60px;
+    }
+
+    .anasayfa-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dersler-kismi {
+        order: 1; /* İlk sırada göster */
+    }
+
+    .galeri-kismi {
+        order: 2; /* İkinci sırada göster */
+    }
+
+    .egitmenler-section {
+        order: 3; /* Üçüncü sırada göster */
+    }
+
+    .iletisim-section {
+        order: 4; /* Son sırada göster */
     }
 }
 
