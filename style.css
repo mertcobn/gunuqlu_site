@@ -337,25 +337,41 @@ footer {
 
     .anasayfa-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .dersler-kismi {
-        order: 1; /* İlk sırada göster */
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .dersler-kismi h2 {
+        font-size: 1.3rem;
+        padding: 0.5rem 0;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .ders-card {
+        padding: 0.8rem 1rem;
+    }
+
+    .ders-card h3 {
+        font-size: 0.95rem;
     }
 
     .galeri-kismi {
-        order: 2; /* İkinci sırada göster */
+        order: 2;
     }
 
     .egitmenler-section {
-        order: 3; /* Üçüncü sırada göster */
+        order: 3;
     }
 
     .iletisim-section {
-        order: 4; /* Son sırada göster */
+        order: 4;
     }
 
     /* İletişim container düzeni */
@@ -575,6 +591,26 @@ html {
     main {
         padding-top: 50px;
     }
+
+    .anasayfa-container {
+        gap: 1rem;
+    }
+
+    .dersler-kismi {
+        gap: 0.8rem;
+    }
+
+    .ders-card {
+        padding: 0.7rem 0.9rem;
+    }
+
+    .ders-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .slider-container {
+        height: 250px;
+    }
 }
 
 /* Hero section için stiller */
@@ -627,9 +663,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    min-height: calc(100vh - 120px);
     align-items: start;
-    padding-top: 1rem;
 }
 
 .galeri-grid {
@@ -652,32 +686,40 @@ html {
 }
 
 .dersler-kismi {
-    padding: 1rem;
-    max-height: 500px;
-    overflow-y: auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
 .dersler-kismi h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    padding: 0 0 1rem 0;
+    background: transparent;
+    border-radius: 12px;
 }
 
 .ders-card {
     background: var(--white);
-    padding: 1.2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
 }
 
 .ders-card:hover {
     transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .ders-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin: 0;
+    font-weight: 500;
 }
 
 .ders-card p {
@@ -686,60 +728,44 @@ html {
 }
 
 /* Mobil görünüm için düzenlemeler */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .anasayfa-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .slider-container {
-        height: 400px;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .dersler-kismi {
-        max-height: none;
-        overflow-y: visible;
-    }
-
-    .ders-card {
-        padding: 1rem;
-    }
-
-    .ders-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .ders-card p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .slider-container {
-        height: 300px;
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin-bottom: 1.5rem;
     }
 
     .dersler-kismi h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        padding: 0.5rem 0;
+        text-align: center;
         margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .slider-container {
-        height: 250px;
     }
 
     .ders-card {
-        padding: 0.8rem;
+        padding: 0.8rem 1rem;
     }
 
     .ders-card h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
-    .ders-card p {
-        font-size: 0.85rem;
+    .galeri-kismi {
+        order: 2;
+    }
+
+    .egitmenler-section {
+        order: 3;
+    }
+
+    .iletisim-section {
+        order: 4;
     }
 }
 
@@ -869,25 +895,15 @@ img {
 @media (min-width: 769px) and (max-width: 1024px) {
     .anasayfa-container {
         gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .dersler-kismi {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .slider-container {
-        height: 350px;
-    }
-
-    .egitmenler-grid {
-        gap: 1.5rem;
-    }
-
-    .section {
-        padding: 2rem 1.5rem;
-    }
-
-    .iletisim-container {
-        gap: 1.5rem;
-    }
-
-    .map-container {
         height: 350px;
     }
 }
